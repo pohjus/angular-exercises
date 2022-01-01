@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-selector',
-  template: `<h1>Hello {{ title }}</h1>
-    <loremlipsum></loremlipsum>`,
-  styleUrls: ['./app.component.css'],
+  selector: 'loremlipsum',
+  template: `<hr />
+    <p>{{ loremlipsum }}</p>
+    <hr />`,
+  styleUrls: ['./loremlipsum.component.css'],
 })
-export class AppComponent {
-  title: string = 'from Angular!';
+export class LoremComponent {
   loremlipsum: string = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus
       euismod nulla in porta. Aliquam sollicitudin neque nulla, sit amet dictum
       erat dictum a. Phasellus eget dui nisl. Vivamus tempus felis ut sodales
