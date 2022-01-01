@@ -35,9 +35,19 @@ button:after {
   transition: all 0.8s;
 }
 
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 button:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;
   transition: 0s;
+}
+
+p.disabled {
+  color: #666666;
 }
