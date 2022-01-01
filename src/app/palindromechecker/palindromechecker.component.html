@@ -1,0 +1,21 @@
+<div>
+    <p><input [(ngModel)]="palindrome" placeholder="give palindrome" name="palindrome" /></p>
+
+    <table *ngIf="palindrome !== ''">
+        <thead>
+            <tr>
+                <th>Original</th>
+                <th>Reversed</th>
+                <th>Palindrome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{palindrome.toLowerCase()}}</td>
+                <td>{{reverse(palindrome)}}</td>
+                <td [ngClass]="checkIfPalindrome()">{{checkIfPalindrome()}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

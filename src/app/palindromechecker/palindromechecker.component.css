@@ -1,0 +1,31 @@
+input {
+  width: 100%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 120%;
+}
+
+div {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 120%;
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+}
+
+td,
+th {
+  width: 33%;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0px;
+}
+
+.Yes {
+  color: Green;
+}
+
+.No {
+  color: Red;
+}

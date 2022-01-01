@@ -3,3 +3,7 @@ h1 {
   color: darkgray;
   font-weight: normal;
 }
+
+hr {
+  border-top: 2px dashed gray;
+}
