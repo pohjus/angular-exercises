@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'loremlipsum',
+  selector: 'app-loremlipsum',
   template: `<hr />
     <p>{{ loremlipsum }}</p>
+    <button>Reverse</button>
     <hr />`,
   styleUrls: ['./loremlipsum.component.css'],
 })

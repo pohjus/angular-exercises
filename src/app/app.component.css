@@ -1,11 +1,5 @@
 h1 {
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: darkgray;
   font-weight: normal;
-}
-p {
-  font-family: Arial;
-}
-hr {
-  border-top: 2px dashed red;
 }
