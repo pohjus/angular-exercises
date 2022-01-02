@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MyService } from './myservice.service';
+
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -22,7 +24,7 @@ import { LampComponent } from './lamp/lamp.component';
     LampComponent,
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [MyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

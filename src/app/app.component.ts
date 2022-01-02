@@ -1,31 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MyService } from './myservice.service';
+
+import { Character } from './character';
+import { Result } from './result';
 
 @Component({
   selector: 'app-root',
-  template: `<h1>Hello {{ title }}</h1>
-
-    <app-countdown
-      [from]="1"
-      [to]="10"
-      (finished)="done($event)"
-    ></app-countdown>
-    <app-lamp [toggle]="lamptoggle"></app-lamp>
-
-    <h2>Clock</h2>
-
-    <button (click)="toggle()">Toggle Clock</button><br />
-    <input type="text" [(ngModel)]="locale" placeholder="give locale" />
-    <app-clock *ngIf="isVisible" [locale]="locale"></app-clock>
-    <app-infotext></app-infotext>
-    <app-loremlipsum></app-loremlipsum>
-    <app-palindromechecker></app-palindromechecker>`,
+  templateUrl: 'app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = 'from Angular!';
   isVisible = true;
   locale = '';
   lamptoggle = false;
+
+  characters: Character[] = [];
+
+  http: MyService;
+
+  constructor(http: MyService) {
+    this.http = http;
+  }
 
   toggle() {
     this.isVisible = !this.isVisible;
@@ -33,5 +29,11 @@ export class AppComponent {
 
   done(event: string): void {
     this.lamptoggle = true;
+  }
+
+  ngOnInit(): void {
+    this.http.get<Character>('https://swapi.dev/api/people/1', (jsonObject) => {
+      this.title = jsonObject.name;
+    });
   }
 }
