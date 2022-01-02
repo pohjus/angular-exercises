@@ -3,6 +3,8 @@ import { MyService } from './myservice.service';
 
 import { Character } from './character';
 import { Result } from './result';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +19,9 @@ export class AppComponent implements OnInit {
 
   characters: Character[] = [];
 
-  http: MyService;
+  private http: HttpClient;
 
-  constructor(http: MyService) {
+  constructor(http: HttpClient) {
     this.http = http;
   }
 
@@ -32,8 +34,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<Character>('https://swapi.dev/api/people/1', (jsonObject) => {
-      this.title = jsonObject.name;
-    });
+    const observable: Observable<Result> = this.http.get<Result>(
+      'https://swapi.dev/api/people/'
+    );
+
+    observable.subscribe((data) => (this.characters = data.results));
   }
 }

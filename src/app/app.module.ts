@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { MyService } from './myservice.service';
 
@@ -23,8 +24,8 @@ import { LampComponent } from './lamp/lamp.component';
     CountdownComponent,
     LampComponent,
   ],
-  imports: [BrowserModule, FormsModule],
-  providers: [MyService],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
+  providers: [MyService, HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
