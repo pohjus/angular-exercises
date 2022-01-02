@@ -1,34 +1,51 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.css'],
 })
-export class ClockComponent implements OnInit, OnDestroy {
+export class ClockComponent implements OnInit, OnDestroy, OnChanges {
   @Input() locale = '';
 
   time = '';
   id: any = null;
 
-  constructor() {
-    console.log('constructor', this.locale);
-  }
+  constructor() {}
   ngOnInit(): void {
-    console.log('ngOnInit', this.locale);
     this.tick();
-    console.log('start interval');
-
     this.id = setInterval(this.tick, 1000);
   }
 
   ngOnDestroy(): void {
-    console.log('clear interval');
     clearInterval(this.id);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['locale'].firstChange) {
+      console.log('First change, lets use English');
+
+      this.locale = 'EN';
+    } else {
+      try {
+        // error is raised if invalid locale
+        new Date().toLocaleTimeString(this.locale);
+        console.log('correct locale: ', this.locale);
+      } catch {
+        console.log('incorrect locale, reverting to English');
+        this.locale = 'EN';
+      }
+    }
   }
 
   tick = () => {
     this.time = new Date().toLocaleTimeString(this.locale);
-    console.log(this.time);
   };
 }
