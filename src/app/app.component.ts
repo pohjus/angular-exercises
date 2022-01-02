@@ -3,6 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `<h1>Hello {{ title }}</h1>
+
+    <app-countdown
+      [from]="1"
+      [to]="3"
+      (finished)="done($event)"
+    ></app-countdown>
+
     <h2>Clock</h2>
 
     <button (click)="toggle()">Toggle Clock</button><br />
@@ -20,5 +27,9 @@ export class AppComponent {
 
   toggle() {
     this.isVisible = !this.isVisible;
+  }
+
+  done(event: string): void {
+    alert('countdown done');
   }
 }

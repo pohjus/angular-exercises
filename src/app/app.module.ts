@@ -8,6 +8,7 @@ import { LoremComponent } from './loremlipsum/loremlipsum.component';
 import { InfotextComponent } from './infotext/infotext.component';
 import { PalindromecheckerComponent } from './palindromechecker/palindromechecker.component';
 import { ClockComponent } from './clock/clock.component';
+import { CountdownComponent } from './countdown/countdown.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ClockComponent } from './clock/clock.component';
     InfotextComponent,
     PalindromecheckerComponent,
     ClockComponent,
+    CountdownComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
