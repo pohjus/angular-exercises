@@ -1,14 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.css'],
 })
-export class ClockComponent implements OnInit {
+export class ClockComponent implements OnInit, OnDestroy {
   @Input() locale = '';
 
   time = '';
+  id: any = null;
 
   constructor() {
     console.log('constructor', this.locale);
@@ -16,10 +17,18 @@ export class ClockComponent implements OnInit {
   ngOnInit(): void {
     console.log('ngOnInit', this.locale);
     this.tick();
-    setInterval(this.tick, 1000);
+    console.log('start interval');
+
+    this.id = setInterval(this.tick, 1000);
+  }
+
+  ngOnDestroy(): void {
+    console.log('clear interval');
+    clearInterval(this.id);
   }
 
   tick = () => {
     this.time = new Date().toLocaleTimeString(this.locale);
+    console.log(this.time);
   };
 }
