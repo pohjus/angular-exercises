@@ -9,6 +9,7 @@ import { InfotextComponent } from './infotext/infotext.component';
 import { PalindromecheckerComponent } from './palindromechecker/palindromechecker.component';
 import { ClockComponent } from './clock/clock.component';
 import { CountdownComponent } from './countdown/countdown.component';
+import { LampComponent } from './lamp/lamp.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CountdownComponent } from './countdown/countdown.component';
     PalindromecheckerComponent,
     ClockComponent,
     CountdownComponent,
+    LampComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

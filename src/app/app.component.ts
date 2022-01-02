@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
 
     <app-countdown
       [from]="1"
-      [to]="3"
+      [to]="10"
       (finished)="done($event)"
     ></app-countdown>
+    <app-lamp [toggle]="lamptoggle"></app-lamp>
 
     <h2>Clock</h2>
 
@@ -24,12 +25,13 @@ export class AppComponent {
   title: string = 'from Angular!';
   isVisible = true;
   locale = '';
+  lamptoggle = false;
 
   toggle() {
     this.isVisible = !this.isVisible;
   }
 
   done(event: string): void {
-    alert('countdown done');
+    this.lamptoggle = true;
   }
 }
