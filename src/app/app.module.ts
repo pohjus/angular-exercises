@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoremComponent } from './loremlipsum/loremlipsum.component';
 import { InfotextComponent } from './infotext/infotext.component';
 import { PalindromecheckerComponent } from './palindromechecker/palindromechecker.component';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PalindromecheckerComponent } from './palindromechecker/palindromechecke
     LoremComponent,
     InfotextComponent,
     PalindromecheckerComponent,
+    ClockComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
